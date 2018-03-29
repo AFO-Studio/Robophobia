@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script>
+        var counter = 1;
+        setInterval(function(){
+        var myCanvas = document.getElementById('myCanvas');
+        var ctx = myCanvas.getContext('2d');
+        var img = new Image;
+        img.onload = function(){
+        ctx.drawImage(img,0,0);
+        };
+
+        // I had 4 images in my folder so I checked with 4.
+        if(counter == 41) counter = 1;
+
+        // assuming that your image sequence is named skeleton-blackSmith-walk_0.png, skeleton-blackSmith-walk_1.png, skeleton-blackSmith-walk_2.png ....
+        img.src = counter + '.png';
+
+        counter++;
+
+        // I set the interval to 100 ms, increase or decrease as per your need.
+        // If you don't want loop use clearTimeout()
+        }, 100);
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas> 
+    </body>
+</html>
